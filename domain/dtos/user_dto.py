@@ -9,7 +9,7 @@ class UserDTO:
     name: Optional[str]
     last_name: Optional[str]
     phone: Optional[str]
-    adress: Optional[str]
+    address: Optional[str]
     date_of_birth: Optional[date]
     email: Optional[str]
     password: str
