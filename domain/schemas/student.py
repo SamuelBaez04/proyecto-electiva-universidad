@@ -1,4 +1,4 @@
-# core/domain/student.py
+
 from pydantic import BaseModel
 from datetime import date
 from typing import Optional
@@ -6,7 +6,7 @@ from typing import Optional
 class StudentBase(BaseModel):
     code_student: Optional[str] = None
     current_semester: Optional[int] = None
-    academinc_program: Optional[str] = None
+    academic_program: Optional[str] = None
     date_of_entry: Optional[date] = None
     state: Optional[str] = None
 
