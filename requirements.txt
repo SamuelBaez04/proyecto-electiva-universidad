@@ -2,3 +2,4 @@ fastapi==0.115.12
 alembic==1.16.1
 sqlalchemy==2.0.41
 mysqlclient==2.2.7
+uvicorn==0.34.2
