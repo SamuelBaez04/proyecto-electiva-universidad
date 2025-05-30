@@ -1,13 +1,6 @@
 from fastapi import FastAPI
-
+from infra.routes.users.create_student import router as create_student_router
 app = FastAPI()
 
+app.include_router(create_student_router)
 
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
-
-
-@app.get("/hello/{name}")
-async def say_hello(name: str):
-    return {"message": f"Hello {name}"}
