@@ -1,14 +1,15 @@
+from typing import Any, Coroutine
+
 from sqlalchemy.orm import Session
 from domain.dtos.student_dto import StudentDTO
 from infra.db.models.student import Student
 from infra.db.models.user import User
-from domain.repositories.student_repository import IStudentRepository
 
-class StudentRepositorySQL(IStudentRepository):
+class StudentRepository:
     def __init__(self, db: Session):
         self.db = db
 
-    def create(self, dto: StudentDTO) -> Student:
+    async def create(self, dto: StudentDTO) -> Student:
         user = User(
             name=dto.name,
             last_name=dto.last_name,
@@ -31,14 +32,14 @@ class StudentRepositorySQL(IStudentRepository):
         self.db.refresh(student)
         return student
 
-    def get_by_id(self, student_id: int) -> type[Student] | None:
-        return self.db.query(Student).filter_by(id_student=student_id).first()
+    async def get_by_id(self, id_student: int) -> type[Student] | None:
+        return self.db.query(Student).filter_by(id_student=id_student).first()
 
-    def list_all(self) -> list[type[Student]]:
+    async def list_all(self) -> list[type[Student]]:
         return self.db.query(Student).all()
 
-    def delete(self, student_id: int) -> None:
-        student = self.db.query(Student).filter_by(id_student=student_id).first()
+    async def delete(self, id_student: int) -> None:
+        student = self.db.query(Student).filter_by(id_student=id_student).first()
         if student:
             self.db.delete(student)
             self.db.commit()
