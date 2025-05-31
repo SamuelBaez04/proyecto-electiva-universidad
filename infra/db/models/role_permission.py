@@ -2,7 +2,7 @@ from sqlalchemy import Column, Integer, ForeignKey
 from sqlalchemy.orm import relationship
 from .base import Base
 
-class RolPermission(Base):
+class RolePermission(Base):
     __tablename__ = "rol_permission"
     __table_args__ = {"schema": "u"}
 

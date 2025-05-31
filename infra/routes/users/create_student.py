@@ -6,7 +6,7 @@ router = APIRouter()
 @router.put('/user/student')
 async def create_student(request: Request, student: StudentDTO = Body()):
     """
-    Este metodo genera un student
+    this def generate a student from
     :param request:
     :param student:
     :return:
